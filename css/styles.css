@@ -1,0 +1,274 @@
+/*********************************************************************
+***
+*Original Author:  Jake Miller                                  *
+*Date Created:    8/26/2022                                   *
+*Version:        1.3                                        *
+*Date Last Modified:     9/09/2022                         *
+*Modified by:          Jake Miller                                *
+*Modification log:                                  *
+
+        Version 0.0 - 08/26/2022 - File Created, basic background color scheme added, navbar designed.
+        Version 0.4 - 08/27/2022 - Colors and some font effects added to several other areas. Custom font called journal added.
+        Version 0.7 - 08/27/2022 - Main section added with background color, positioned after the fixed nav, began to have horizontal scrolling issue in main section space.
+        Version 0.9 - 08/28/2022 - Changed the main section to relative position to set up footer, adjusted max height of footer image.
+        Version 1.0 - 08/28/2022 - No change, ready to launch.
+        Version 1.1 - 09/07/2022 - Added some new font colors, removed the scrollbar. Made the scrolling with page links smooth, the landing is not quite right because of the fixed navbar. Large margins from bootstrap make it land generally at the start of sections, with the heading covered by the navbar.
+        Version 1.3 - 09/09/2022 - Experimented with faq section and hiding things, code has been commented out for now as it did not work.
+        Version 1.5 - 09/23/2022 - Added brownglow, Menu slide show, and location map settings.
+        Version 1.6 - 10/01-2022 - Added styles for the progressbar, accordion, and tabs. Added a few new colors. I finally fixed the extra width issue some elements were having with body nav {width:100vw}.
+
+***
+******************************************************************** */
+
+@font-face {
+  font-family: "journal";
+  src: url(../fonts/journal-webfont.woff), url(../fonts/journal-webfont.woff2);
+}
+
+.sans {
+  font-family: sans-serif;
+}
+
+.journal {
+  font-family: "journal";
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+.journalsmall {
+  font-family: "journal";
+  font-size: 2rem;
+}
+
+/* Light Brown #D0B49F */
+.lightbrown {
+  background-color: #d0b49f;
+}
+.lightbrowntxt {
+  color: #d0b49f;
+}
+li.nav-item a.lightbrowntxt {
+  color: #d0b49f !important;
+}
+/* Brown #AB6B51 */
+.brown {
+  background-color: #ab6b51;
+}
+.browntxt {
+  color: #ab6b51;
+}
+.darkbrown {
+  background-color: #523a28;
+}
+.darkbrowntxt {
+  color: #523a28;
+}
+
+li.nav-item a.darkbrowntxt {
+  color: #523a28 !important;
+}
+/* Cornflower Blue #2F435A */
+.cornflower {
+  background-color: #2f435a;
+}
+.cornflowertxt {
+  color: #2f435a;
+}
+/* lightBlue #39918C */
+.lightblue {
+  background-color: #39918c;
+}
+.lightbluetxt {
+  color: #39918c;
+}
+
+/* Dark Brown #523A28 */
+.dbrowntext {
+  color: #523a28;
+}
+
+.redtxt {
+  color: red;
+}
+.white {
+  background-color: white;
+}
+.yellow {
+  background-color: yellow;
+}
+
+html {
+  scroll-behavior: smooth;
+  max-width: 100vw;
+  width: 100vw;
+}
+body nav {
+  max-width: 100vw;
+  width: 100vw;
+}
+
+h1 {
+  display: none;
+}
+@media screen and (min-width: 450px) {
+  h1 {
+    display: block;
+  }
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+main {
+  width: 100vw;
+  max-width: 100vw;
+  position: relative;
+  top: 106px;
+  display: inline;
+}
+
+.row {
+  max-width: 100vw;
+}
+
+.barrier {
+  height: 106px;
+}
+
+.glow {
+  border: 3px solid #39918c;
+  box-shadow: 0px 0px 10px #d0b49f;
+}
+.brownGlow {
+  border: 3px solid #d0b49f;
+  box-shadow: 0px 0px 10px #39918c;
+}
+
+.alignCenter {
+  text-align: center;
+  font-weight: bold;
+}
+
+.see-through {
+  opacity: 98%;
+}
+
+.beans {
+  background-image: url(../images/warmbeans.jpg);
+  background-size: cover;
+}
+.beans2 {
+  background-image: url(../images/beans2.jpg);
+  background-size: cover;
+}
+.KCico {
+  width: 80px;
+  vertical-align: middle;
+  border-style: none;
+  border: 1px solid #39918c;
+  box-shadow: 0px 0px 5px #d0b49f;
+}
+
+.navtitle {
+  vertical-align: middle;
+}
+.nav-border {
+  border: 2px solid #2f435a;
+  box-shadow: 0px 0px 10px #d0b49f;
+}
+
+h1 {
+  font-size: 4rem;
+  letter-spacing: 4px;
+  font-weight: 900;
+  font-family: "journal";
+  background: #2f435a;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 1px #39918c;
+}
+.h1border {
+  padding: 0px 7px;
+  background: radial-gradient(#d0b49f, #ab6b51);
+  box-shadow: 0px 0px 10px #d0b49f;
+}
+
+/* menu slide show */
+#firstSlides img,
+#secondSlides img {
+  display: none;
+}
+#firstSlide:hover {
+  border: 3px solid #39918c;
+  box-shadow: 0px 0px 10px #d0b49f;
+}
+#secondSlide:hover {
+  border: 3px solid #ab6b51;
+  box-shadow: 0px 0px 10px #39918c;
+}
+
+/* Location map */
+#gmap_canvas {
+  width: 100%;
+  height: 300px;
+}
+
+@media screen and (min-width: 800px) {
+  #gmap_canvas {
+    height: 600px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #gmap_canvas {
+    max-height: 1000px;
+  }
+}
+
+/* TABS */
+#tabs ul li {
+  display: inline;
+  border: solid;
+  list-style: none;
+}
+
+@media screen and (max-width: 575px) {
+  #tenC {
+    display: none;
+  }
+}
+#aboutImg {
+  width: auto;
+  max-height: 300px;
+}
+
+/* FAQs */
+#faqs h3:hover {
+  background-color: #d0b49f;
+  color: #2f435a;
+}
+
+/* Progressbar */
+#progressbar {
+  height: 25px;
+  width: auto;
+  background-color: #d0b49f;
+  display: block;
+}
+#progressbar div {
+  height: 25px;
+}
+
+/* footer */
+footer {
+  width: auto;
+  position: relative;
+  top: 50px;
+}
+
+.footermax {
+  max-height: 200px;
+  display: block;
+  margin: auto;
+}

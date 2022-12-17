@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<!-- Jake Miller 8/26/2022 -->
+<!----------------------------------------------------------------------------------------------------------------
+--
+#Original Author:  Jake Miller                                     #
+#Date Created:  8/26/2022                                       #
+#Version:       1.1                                           #
+#Date Last Modified:     9/7/2022                           #
+#Modified by:       Jake Miller                                    #
+#Modification log:     #
+
+        Version 0.0 - 08/26/2022 - Mod Log, initial files, and essential folders created. Nav Bar, and logo developed.
+
+        Version 0.4 - 08/27/2022 - Logo redesigned and reintegrated, colors reworked. Thematic color scheme integrated.
+        
+        Version 0.7 - 08/27/2022 - Main Section started. Featured Drinks section created, and About us initialized. 
+
+        Version 0.9 - 08/28/2022 - Added Favicons. Created footer logo, background image, Email List signup with javascript email validation, and copyright end.
+
+        Version 1.0 - 08/28/2022 - Site ready to launch, double checked documentation, looked for grammatical errors
+
+        Version 1.1 - 09/07-2022 - Created templates for the About, FAQs, and Contact sections.
+
+        Version 1.2 - 09/08/2022 - Added content to the contact form, and added functionality with contact.js.
+
+        Version 1.3 - 09/09/2022 - Redesigned the contact form to use bootstraps input groups. Added text to the FAQs, and designed the groupsize.js, in testing though I ended up merging that file with the contact.js so that they can both work. Disabled smoothscroll.js for now, experimented with hiding elements for faqs.js and FAQs section, and revealing them when they are clicked on, does not yet work and code is commented out.
+
+        Version 1.4 - 09/21/2022 - Merged javascript files and implemented jQuery. Ensured that the FAQ's dropdown, groupsize calc, and contact forms all work. The email link at the bottom needs looked at.
+
+        Version 1.5 - 09/23/2022 - Updated FAQs to have animated dropdowns, I should add icons that indicate the text is clickable in the future. Redesigned the Menu to a slide show with updated images after I failed trying to design a carousel. I added the Location section to the site, including a map. After tinkering around with google maps and not wanting to give credit card info to set up an API, I found a way to implement google maps without doing that.
+
+        Version 1.6 - 10/01/2022 - Added new Partners section, included three widgets. Accordion in FAQS, Tabs in the About, and Progressbar in partners. I also updated the contact page and groupsize calculator to include a span for errors and succesful submission. Contact, and EmailList still need some work. Contact needs a currency spinner and error messaging needs some work. Email still needs a span instead of whatever causes the page to refresh.
+
+        Version 1.65 - 10/05/2022 - Began to fill in the about section with meaninful content. Fixed the Email List scripting to no longer refresh the page on submit, but rather display that the submission has been received (even if nothing is typed).
+
+        Version 1.7 - 10/12/2022 - Completed the about section, updated all forms to include regular expressions and new areas for error texts to go. Added date object to contact section. Added alt tags for images.
+
+
+
+
+--
+------------------------------------------------------------------------------------------------------------------>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="description" content="King's Cafe" />
+    <meta
+      name="keywords"
+      content="King's Cafe, Coffee, Coffee shop, java, cafe"
+    />
+    <meta name="author" content="Jake Miller" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <!-- Style sheet -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="scripts/jquery-ui.min.js"></script>
+    <script src="scripts/script.js"></script>
+    <title>King's Cafe | Home</title>
+  </head>
+  <body>
+    <!-- Bootstrap Navigation bar -->
+    <!--Navbar-->
+    <nav
+      class="navbar fixed-top navbar-expand-md navbar-light beans see-through mb-5"
+    >
+      <!-- Navbar brand -->
+      <a class="navbar-brand mr-md-3" href="index.html"
+        ><img
+          class="KCico rounded"
+          src="images/KingsCafe(2).png"
+          alt="King's Cafe logo icon"
+      /></a>
+
+      <div class="h1border">
+        <h1 class="navtitle top text-center mx-auto">King's Cafe</h1>
+      </div>
+
+      <!-- Collapse button -->
+      <button
+        class="navbar-toggler nav-border lightblue"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarResponsive"
+        aria-controls="navbarResponsive"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon text-white"></span>
+      </button>
+
+      <!-- Collapsible content -->
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <!-- Links -->
+        <ul class="navbar-nav ml-2 font-weight-bold">
+          <li class="nav-item text-center">
+            <a class="nav-link lightblue darkbrowntxt" href="#menu">Menu</a>
+          </li>
+          <li class="nav-item text-center">
+            <a class="nav-link cornflower lightbrowntxt" href="#location">Location</a>
+          </li>
+          <li class="nav-item text-center">
+            <a class="nav-link lightblue darkbrowntxt" href="#about">About</a>
+          </li>
+          <li class="nav-item text-center">
+            <a class="nav-link cornflower lightbrowntxt" href="#partners">Partners</a>
+          </li>
+          <li class="nav-item text-center">
+            <a class="nav-link lightblue darkbrowntxt" href="#faqs">FAQs</a>
+          </li>
+          <li class="nav-item text-center">
+            <a class="nav-link cornflower lightbrowntxt" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="mw-100">
+      <!-- Main Section -->
+      <main class="">
+        <!-- Menu section -->
+        <div class="brown" id="menu">
+          <div class="row">
+            <h2 class="col-12 mt-5 text-center dbrowntext journal">
+              Featured Drinks
+            </h2>
+          </div>
+
+          <div class="row text-center mx-5">
+            <div class="col"></div>
+            <div class="col-lg-5 darkbrown m-2">
+              <!-- First col-->
+              <h2 id="firstCaption" class="lightbluetxt mr-2">
+                Pumpkin Spice on Ice
+              </h2>
+              <img
+                id="firstSlide"
+                class="img-fluid rounded mb-5"
+                src="images/iced_pumpkin.jpg"
+                alt="Pumpkin Spice on Ice"
+              />
+              <div id="firstSlides">
+                <img src="images/iced_pumpkin.jpg" alt="Pumpkin Spice on Ice" />
+                <!-- Image from Demi DeHerrera-->
+                <img src="images/iced_chai.jpg" alt="Chai Latte" />
+                <!-- Image from Salar Arif-->
+              </div>
+            </div>
+            <div class="col-lg-5 lightblue m-2">
+              <!-- Second col -->
+              <h2 id="secondCaption" class="dbrowntext mx-2">
+                Iced Latte
+                <p></p>
+              </h2>
+              <img
+                id="secondSlide"
+                class="img-fluid rounded mb-5"
+                src="images/iced_latte.jpg"
+                alt="Iced Latte"
+              />
+              <div id="secondSlides">
+                <img src="images/iced_latte.jpg" alt="Iced Latte" />
+                <!-- Image from pariwat pannium-->
+                <img src="images/cold_brew.jpg" alt="Cold Brew" />
+                <!-- Image from Andrew Valdivia -->
+              </div>
+            </div>
+            <div class="col"></div>
+          </div>
+          <div class="row"><div class="col my-5"></div></div>
+          <!-- Provides space after images-->
+        </div>
+
+        <!-- Location -->
+        <div class="darkbrown" id="location">
+          <div class="row">
+            <div class="col my-5"></div>
+            <div id="map" class="col-10 my-5 mr-auto text-center">
+              <h2 class="text-center lightbluetxt">Location</h2>
+              <p class="text-white mb-5">
+                King's Cafe N Meridian Rd. Meridian, ID, 83642
+              </p>
+              <iframe
+                class="brownGlow"
+                width="250"
+                height="250"
+                frameborder="0"
+                scrolling="no"
+                marginheight="0"
+                marginwidth="0"
+                id="gmap_canvas"
+                src="https://maps.google.com/maps?width=612&amp;height=600&amp;hl=en&amp;q=N%20Meridian%20Rd%20Meridian+(King's%20Cafe)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+              ></iframe>
+              <script
+                type="text/javascript"
+                src="https://embedmaps.com/google-maps-authorization/script.js?id=17e78ac03e431bbd3cf8699a1f3b51ea35b992de"
+              ></script>
+            </div>
+            <div class="col my-5"></div>
+            <div class="row"><div class="col my-5"></div></div>
+          </div>
+        </div>
+
+        <!-- About Us-->
+        <div class="lightbrown" id="about">
+          <div class="row">
+            <h2 class="journal col-12 mt-5 text-center dbrowntext">About Us</h2>
+          </div>
+            <div id="tabs" class="mb-5 text-left cornflowertxt">
+              <ul class="text-center">
+                <li class="mb-5"><a href="#tabs-1">Coffee&nbsp;Convictions</a></li>
+                <li><a href="#tabs-2">Who&nbsp;We&nbsp;Are</a></li>
+                <li><a href="#tabs-3">Good&nbsp;News</a></li>
+              </ul>
+              <div id="tabs-1" class="sans m-4">
+                  <p>At the King's Cafe, we strive to make the best coffee you have ever had, exactly how you want it. With our dedication to serving our community and belief that Christ is glorified in our craft we aim to provide you with a cup of coffee made from fresh roasted high quality beans. Most coffee goes stale a month after it's roasted even with fancy packaging, by roasting our beans in small batchs in-house we are able to provide you with fresh roasted flavors such as: 
+                      <div class="row brown">
+                        <div class="col-xl-6 ">
+                          <div class="row text-left m-1 sans cornflower">
+                            <div class="col-md-4 lightbrowntxt my-auto"><h3 class="text-center font-weight-bold">Tanzanian Peaberry</h3>
+                              <p class="text-left">Medium roast with a medium-light body accompanied by a rich chocolate flavor and intense brightness. Subtle notes of wine, citrus and tart fruit with a soft sweet finish.</p></div>      
+                            <img src="images/peaberry.jpg" class="col-md-8 img-fluid my-3" alt="dirty hands holding red, orange, yellow, and green coffee beans"> <!-- Image from Livier Garcia -->
+                          </div> <!--End first beans -->
+                        </div> <!-- End xlarge col-->
+                        <div class="col-xl-6">                        
+                            <div class="row text-left m-1 sans">         
+                              <img src="images/guatemalan.jpg" class="col-md-8 img-fluid my-3" alt="cluster of green coffee beans on a branch around green leaves">  <!-- Image by wojoan -->
+                              <div class="col-md-4 my-auto"><h3 class="text-center font-weight-bold">Guatemalan Antigua</h3>
+                                <p class="text-left">Lightly roasted and full-bodied with a smooth finish. From high altitude volcanic soil, this roast is rich in flavor and aroma. With notes of cocoa, berry, and citrus.</p></div>                                     
+                            </div> <!--End second beans -->
+                          </div> <!-- End xlarge col-->
+                        </div> <!-- End first row -->
+
+                        <div class="row brown"> <!-- Start second row -->
+                          <div class="col-xl-6">
+                              <div class="row text-left m-1 sans  darkbrown">
+                                <div class="col-md-4 my-auto lightbluetxt"><h3 class="text-center font-weight-bold">Colombian</h3>
+                                  <p class="text-left">Dark roast with a full-body roasted to perfection in-house. Rustic sweetness and a smooth profile. Notes of cocoa and dark fruit.</p></div>              
+                                <img src="images/colombian.jpg" class="col-md-8 my-3 img-fluid" alt="dark roasted coffee beans"> <!-- image by igor haritanovich -->
+                              </div> <!--End third beans -->
+                          </div> <!-- End xlarge col-->
+                          <div class="col-xl-6 h-50">
+                              <div class="row text-left m-1 sans darkbrowntxt lightblue">
+                                <img src="images/whitepeaberry.jpg" class="col-md-8 img-fluid my-3" alt="tannish white beans in a pile"> <!-- Image by Young_n -->
+                                <div class="col-md-4 my-auto"><h3 class="text-center font-weight-bold">White Peaberry</h3>
+                                  <p class="text-left">Our own ultra light roast of peaberry beans from Tanzania produces a very unique coffee experience with about 3x the caffeine of a normal roast. This is a King's Cafe specialty for the adventurous.</p></div>              
+                              </div> <!--End third beans -->
+                          </div> <!-- End xlarge col-->
+                      </div> <!-- End second row-->
+                      </p>                
+              </div>
+              <div id="tabs-2" class="sans m-4">
+                  <p>King's Cafe is a locally owned and operated coffee shop that aims to serve the people of our community with high quality drinks. We, like all other business and people are not neutral about Christ. We seek to glorify God in all we do and that is reflected in the quality drinks we make. We strive to positively impact our community by carrying out the great commission of our Lord to disciple the nations, starting first with our community. Does that mean that if you don't believe as us you won't be comfortable here? As far as it depends on us, that won't be the case. We're OK with you believing differently than us. This is a business and we're happy to talk coffee as well as talk about Christ. You can buy our coffee and we'll do our job. We're here not for the sake of coffee, but to serve people as an extension of our faith in Christ just as the christian businesses of old did long before us. So come, enjoy a glass with us.</p>
+                  <div class="text-center mx-auto">
+                  <img src="images/KingsCafe(2).png" alt="King's Cafe Logo" class="img-fluid" id="aboutImg">
+                  </div>
+                </div>            
+              <div id="tabs-3" class="sans m-4">
+                  <p>At the King's Cafe, we hold to the gospel message that has been proclaimed around the world. Have you heard it? Jesus came not to call those who think they are righteous, but those who know they are sinners <small>(Matthew 9:13)</small>. Are you a good person? Examine yourself using the 10 commandments, if God were to judge you based on these, how would you do? <small>(Exodus 20:2-17)</small>:
+                    <div class="row"><div class="col-sm">
+                    <ol>
+                      <li>You shall have no other gods before Me</li>
+                      <li>You shall make/worship no idols</li>
+                      <li>You shall not take the name of the Lord your God in vain</li>
+                      <li>Keep the Sabbath day holy</li>
+                      <li>Honor your father and your mother</li>
+                      <li>You shall not murder</li>
+                      <li>You shall not commit adultery</li>
+                      <li>You shall not steal</li>
+                      <li>You shall not bear false witness against your neighbor</li>
+                      <li>You shall not covet</li>
+                    </ol>
+                    Jesus summarized all the Law and the Prophets with the two greatest commandments saying <small>(Matthew 22:36-40 NAS)</small>:
+                    <ol>
+                      <li>"‘You shall love the Lord your God with all your heart, and with all your soul, and with all your mind.’ This is the great and foremost commandment."</li>
+                      <li>"The second is like it, ‘You shall love your neighbor as yourself.’ Upon these two commandments hang the whole Law and the Prophets.”"</li>
+                    </ol>
+                    </div>
+                    <div id="tenC" class="col-sm"><img src="images/tenCommandments.jpg" class="img-fluid rounded" alt="large stones covered with vines with the 10 commandments on them"><!--Image by SHAWSHANK66 --></div>
+                    </div>
+                    God's word also says "whoever keeps the whole law and yet stumbles in one point, he has become guilty of all." <small>(James 2:10 NAS)</small> The apostle Paul plainly taught that "There is none righteous, not even one" <small>(Romans 3:10 NAS)</small>. If God were to judge you by your works according to the 10 commandments, would you be found as a liar? A thief? A blasphemer? Idolater? Jesus taught that all liars will have their part in the lake that burns with fire. <small>(Revelation 21:8)</small>
+                    
+                    <br><br>Why is this section called good news? The Good News (gospel) of the Christian faith is that Jesus met the demands of justice with His death on the cross, was buried, and rose again on the third day defeating death. <small>(1 Corinthians 15:1-4)</small>     
+                    "For the wages of sin is death, but the free gift of God is eternal life in Christ Jesus our Lord." <small>(Romans 6:23 NAS)</small> Although you are guilty before God, you can walk because Jesus paid the fine. Salvation is obtained by grace alone, through faith alone, in the work of Christ alone <small>(John 3:16)</small> and not by our good works <small>(Rom. 3:28; 4:1-5; 5:1; Eph. 2:8-9; Gal. 3:1-4; Matt. 7:22-23)</small>. All who, cry out to God like the tax collector who beat his chest and said "God be merciful to me the sinner" will be justified before God. <small>(Luke 18)</small> Jesus came not to call those who think they are righteous, but those who know they are sinners. <small>(Matthew 9:13)</small> If you have trusted in Christ and repented of your sins, start reading your Bible daily, just like you eat and drink. Find a bible teaching church, get connected with them, and pursue baptism. Live for the glory of Christ.
+                  </p>
+                </div>
+          </div>
+        
+
+        <!-- Partners -->
+        <div class="lightblue" id="partners">
+          <div class="row">
+            <h2 class="col my-5 text-center journal">Our Partners</h2>
+          </div>
+          <div class="row">
+            <div class="col-1"></div>
+            <!-- Space -->
+
+            <div class="col-md-5 m-3 text-center">
+              <h3 class="mb-2">Our Community</h3>
+              <div class="brown">
+                <h4>Stanton Healthcare</h4>
+                <a href="https://stantonhealthcare.org"
+                  ><img
+                    src="images/Stanton-Healthcare-Logo.png"
+                    class="img-fluid"
+                    alt="stanton healthcare circular logo"
+                /></a>
+                <p class="text-left mx-2 mb-2">
+                  Every cup of coffee you buy from us goes towards supporting
+                  your local
+                  <a href="https://stantonhealthcare.org" class="darkbrown"
+                    >Stanton Healthcare</a
+                  >
+                  facilities. Stanton Healthcare is a life-affirming medical
+                  clinic that specializes in unexpected pregnancy care, and
+                  treats clients with respect, dignity, and compassion in a
+                  confidential setting. Our easy to find locations in Meridian
+                  and Boise provide us with a great opportunity to serve you.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-5 m-3 text-center">
+              <h3>Partner With Us</h3>
+              <div class="cornflower lightbrowntxt">
+                <h4 class="lightbrowntxt">Project Boise</h4>
+                <div id="progressbar" class="lightbrown m-2">
+                  <div
+                    class="ui-progressbar-value ui-corner-left ui-widget-header yellow cornflowertxt"
+                    style="width: 20%;"
+                  >
+                    20%
+                  </div>
+                </div>
+                <p class="text-left mx-2 mb-5">
+                  Love King's Cafe but live in Boise? We are saving to expand
+                  our franchise out to Boise, and you can partner with us! We've
+                  called this "Project Boise" and every little bit helps.
+                  Contact us with our
+                  <a href="#contact">contact page</a> to donate.
+                </p>
+              </div>
+            </div>
+            <div class="col-1"></div>
+            <!-- Space -->
+          </div>
+        </div>
+
+        <!-- FAQs-->
+        <div class="darkbrown lightbluetxt" id="faqs">
+          <div class="row text-center">
+            <h2 class="col-12 my-5 text-white">
+              Frequently Asked Questions
+            </h2>
+          </div>
+          <!-- Start Accordion -->
+          <div class="text-center mr-auto" id="accordion">
+            <h3>What does the logo say?</h3>
+            <div>
+              <p>
+                Funny you should ask, λόγος (log'-os) is Koine Greek for "word".
+                It's famous for being a title of Jesus Christ used in John 1.
+                "In the beginning was the Word, and the Word was with God and
+                the Word was God." (John 1:1 NASB 1995)
+              </p>
+            </div>
+            <h3>What is the King's Cafe about?</h3>
+            <div>
+              <p>
+                Please head on over to our
+                <a href="#about">about section</a> to read our story, how we
+                came to be, our values, what we stand for, and what we're about.
+              </p>
+            </div>
+            <h3>How can I book my band?</h3>
+            <div>
+              <p>
+                To book your band, please head on over to our
+                <a href="#contact">contact form</a> and submit a formal request.
+                We typically respond within 24 hours during working hours.
+              </p>
+            </div>
+
+            <h3>Is your coffee sustainable?</h3>
+            <div class="hide">
+              <p>
+                The King's Cafe is happy to support a variety of farmers from
+                various sources to provide superior coffee, with a mind towards
+                wise stewardship of the earth and it's resources.
+              </p>
+            </div>
+            <h3 class="darkbrown">How many people can I bring?</h3>
+            <div>
+              <label for="groupSize">How big is your group?</label>
+              <input type="text" id="groupSize" />
+              <input type="button" id="groupSizeButton" value="Calculate" />
+            </div>
+            <span id="doesItFit" class="white redtxt"></span>
+          </div>
+          <!-- End accordion -->
+          <div class="row text-center">
+            <h3 class="col my-4"></h3>
+          </div>
+        </div>
+        <!-- END FAQ -->
+
+        <!-- Contact -->
+        <div class="brown dbrowntext" id="contact">
+          <div class="row">
+            <h2 class="col-12 mt-5 journal text-center dbrowntext">
+              Contact Us
+            </h2>
+          </div>
+          <div class="row">
+            <div class="col-1"></div>
+            <div id="contactForm" class="col-10 mt-3 mb-5 glow lightbrown">              
+                <span class="redtxt" id="nameErr"></span>
+              <div class="input-group my-4 mt-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">First and last name</span>
+                </div>
+                <input type="text" class="form-control glow" id="firstName" />
+                <input type="text" class="form-control glow" id="lastName" />                
+              </div>
+              <!-- Email -->
+                      
+              <span class="redtxt" id="emailErr"></span>
+              <div class="input-group my-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Email address</span>
+                </div>
+                <input type="text" class="form-control glow" id="inputEmail" />
+              </div>      
+
+              <!-- Dropdown -->
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    >Purpose of contact</span
+                  >
+                  <select class="custom-select glow" id="purposeOption">
+                    <option value="General Contact" selected
+                      >General Contact</option
+                    >
+                    <option value="Donation">Donation</option>
+                    <option value="Employment">Employment</option>
+                    <option value="Specific Location Contact"
+                      >Specific Location Contact</option
+                    >
+                  </select>
+                </div>
+              </div>
+
+              <!-- TextArea -->              
+              <span class="redtxt" id="textAreaErr"></span>
+              <div class="input-group my-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Tell us some more</span>
+                </div>
+                <textarea
+                  class="form-control glow"
+                  aria-label="textArea"
+                  id="textArea"
+                  rows="3"
+                ></textarea>
+              </div>
+              <!-- Submit and clear -->
+              <div class="form-group text-center">
+                <input
+                  type="button"
+                  id="submit"
+                  value="Submit"
+                  class="text-white darkbrown glow mx-auto"
+                />
+                <input
+                  type="button"
+                  id="clear"
+                  value="Clear"
+                  class="text-white darkbrown glow mx-auto"
+                />
+                <div class="col-12 mt-2 mb-5">
+                  <span id="contactSpan" class="text-center mx-auto redtxt"></span>
+                  <br><span id="dateSpan" class="text-center mx-auto"></span>
+                </div>
+              </div>
+            </div>
+            <!-- Ends this middle col-->
+            <div class="col-1 mb-5"></div>
+            <!-- Right blank col -->
+          </div>
+          <!-- Additional spacing -->
+          <div class="row">
+            <div class="col mb-5"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="lightblue">
+      <!-- Background Image by <a href="https://pixabay.com/users/stocksnap-894430/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=926837">StockSnap</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=926837">Pixabay</a>-->
+      <div class="row mx-auto beans2">
+        <div class="col-12 my-3">
+          <img
+            class="image-fluid footermax glow rounded"
+            src="images/KingsCafe(2).png" alt="king's cafe logo"
+          />
+        </div>
+      </div>
+
+      <!-- Email List Signup
+            Technique to validate email from https://www.w3resource.com/javascript/form/email-validation.php -->
+      <div class="mail">
+        <h2 class="text-center mt-5 journal">Join Our Email List:</h2>
+        <br><div class="mb-5 text-center">
+          <input class="glow lightbrown" type="text" id="emailList" name="emailList" />
+          &nbsp;
+          <div class="mt-1" class="submit glow cornflower">
+            <input
+              class="cornflower text-white"
+              id="submitEmail"
+              type="button"
+              name="submitEmail"
+              value="Submit"
+            />
+          </div>
+          <span id="emailSuccess" class="redtxt"></span>
+          &nbsp;
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="row alignCenter lightblue">
+        <div class="col mb-2 dbrowntext">
+          &copy;King's Cafe - All Rights Reserved
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
